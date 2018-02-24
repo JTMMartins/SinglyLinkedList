@@ -12,17 +12,15 @@ import java.util.NoSuchElementException;
  */
 public class SinglyLinkedList<T> implements Iterable<T> {
 
-	@SuppressWarnings("rawtypes")
-	private Node head;
-	@SuppressWarnings("rawtypes")
-	private Node tail;
+	private Node<T> head;
+	private Node<T> tail;
 
 	/**
 	 * Adds a new element to the list
 	 * 
 	 * @param element
 	 */
-	@SuppressWarnings("unchecked")
+
 	public void add(T element) {
 
 		Node<T> node = new Node<T>();
@@ -68,7 +66,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		if (head==null) {
 			throw new IndexOutOfBoundsException("the referenced SingleListedLink has no elements");
 		}
-		@SuppressWarnings("unchecked")
 		Node<T> tmp = head;
 		Node<T> refNode = null;
 
@@ -108,7 +105,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		if (head == null) {
 			throw new IndexOutOfBoundsException("the referenced SingleListedLink has no elements");
 		}
-		@SuppressWarnings("unchecked")
 		Node<T> tmp = head;// swap head with next node
 		head = tmp.next();
 		if (head == null) { // in case the list gets empty.
@@ -124,7 +120,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		if (head==null) {
 			throw new IndexOutOfBoundsException("the referenced SingleListedLink has no elements");
 		}
-		@SuppressWarnings("unchecked")
 		Node<T> tmp = head;
 		Node<T> refNode = null;
 		/**
@@ -158,7 +153,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	 * @return void
 	 */
 	public void  reverse() {
-		@SuppressWarnings("unchecked")
 		Node<T> currentNode=head;
 		Node<T> nextNode=null;
 		Node<T> previousNode=null;
@@ -181,7 +175,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		if (head == null) {
 			throw new NullPointerException("Single Listed link not Initialized");
 		}
-		@SuppressWarnings("unchecked")
 		Node<T> tmp = head;
 		// traverse the list and count
 		while (true) {
@@ -218,7 +211,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 			return false; // list is empty...so it does not contains anything.
 		}
 		boolean opResult = false;
-		@SuppressWarnings("unchecked")
 		Node<T> tmp = head;
 		while (true) {
 			if (tmp == null) {
@@ -235,6 +227,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	
 	//bellow are implementations of methods that override
 	//standard ones.
+
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -271,7 +264,6 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 	public Iterator<T> iterator() {
 		return new Iterator<T>() {
-			@SuppressWarnings("unchecked")
 			Node<T> currentNode = head;
 
 			public boolean hasNext() {
