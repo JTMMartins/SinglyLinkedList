@@ -19,6 +19,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	 * Adds a new element to the list
 	 * 
 	 * @param element
+	 * @return void
 	 */
 
 	public void add(T element) {
@@ -100,6 +101,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 	/**
 	 * deletes the head element of the list
+	 * 
+	 * @return void
 	 */
 	public void deleteFront() {
 		if (head == null) {
@@ -114,6 +117,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 	/**
 	 * deletes the element immediately after the supplied element
+	 * 
 	 * @param after
 	 */
 	public void deleteAfter(T after) {
@@ -146,10 +150,9 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		}
 	}
 	
-
-	
 	/**
 	 * reverses the order of the elements on the list
+	 * 
 	 * @return void
 	 */
 	public void  reverse() {
@@ -168,6 +171,8 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	}
 
 	/**
+	 * this method allows to determine the number of elements presents on the list.
+	 * 
 	 * @return int
 	 */
 	public int size() {
@@ -200,7 +205,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	}
 
 	/**
-	 * this method is used to determine if a certain element is part of the list.
+	 * this method is used to determine if a certain element is contained on the list.
 	 * 
 	 * @param element
 	 * @return boolean
@@ -225,7 +230,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		return opResult;
 	}
 	
-	//bellow are implementations of methods that override
+	//bellow are implementations of methods that override or implement
 	//standard ones.
 
 
@@ -262,6 +267,12 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 		return equality;
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Iterable#iterator()
+	 * Our implementation of iterator
+	 */
+	@Override
 	public Iterator<T> iterator() {
 		return new Iterator<T>() {
 			Node<T> currentNode = head;
@@ -291,15 +302,15 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	}
 
 	/**
-	 * A private inner class representing a node of the list.
+	 * A private inner class representing one node of the list.
 	 * 
 	 * @author martins
 	 *
 	 * @param <T>
 	 */
 	private static class Node<T> implements Comparable<T> {
-		private T data;
-		private Node<T> linksTo;
+		private T data; //holds the stored data
+		private Node<T> linksTo;//holds the pointer to the next element.
 
 		public T getData() {
 			return data;
@@ -323,9 +334,9 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 
 		public int compareTo(T o) {
 			if (o == this.data) {
-				return 0;
+				return 0;//is equal
 			} else {
-				return 1;
+				return 1;//is different
 			}
 		}
 	}
