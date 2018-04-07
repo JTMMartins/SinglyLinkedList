@@ -140,10 +140,14 @@ public class SinglyLinkedListTest extends TestCase {
 		assertTrue(resultArray[0]==10);
 		assertTrue(resultArray[1]==20);
 		assertTrue(resultArray[2]==30);
-		assertTrue(resultArray.length==3);
-		
+		assertTrue(resultArray.length==3);	
 	}
 	
+	@Test
+	public void testForEmptyness() {
+		SinglyLinkedList<Integer> sl=new SinglyLinkedList<Integer>();
+		assertTrue(sl.isEmpty());	
+	}
 	
 
 

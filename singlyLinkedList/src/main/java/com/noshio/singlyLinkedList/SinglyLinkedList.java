@@ -236,10 +236,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	 * @return boolean
 	 */
 	public boolean isEmpty() {
-		if (head == null) {
-			return true;
-		}
-		return false;
+		return (head==null)?true:false;
 	}
 
 	/**
