@@ -128,6 +128,22 @@ public class SinglyLinkedListTest extends TestCase {
 		assertNotNull(sl1);
 	}
 	
+	@Test
+	public void testToArray() {
+		SinglyLinkedList<Integer> sl=new SinglyLinkedList<Integer>();
+		sl.add(10);
+		sl.add(20);
+		sl.add(30);
+		assertNotNull(sl1);
+		Integer resultArray[]=new Integer[sl.size()];
+		resultArray=sl.toArray(Integer.class);
+		assertTrue(resultArray[0]==10);
+		assertTrue(resultArray[1]==20);
+		assertTrue(resultArray[2]==30);
+		assertTrue(resultArray.length==3);
+		
+	}
+	
 	
 
 

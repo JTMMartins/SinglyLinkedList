@@ -1,5 +1,6 @@
 package com.noshio.singlyLinkedList;
 
+import java.lang.reflect.Array;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -41,7 +42,13 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 			tail = node;
 		}
 	}
-
+	
+	/**
+	 * Adds a new element to the list, if it does not exist yet.
+	 * 
+	 * @param element
+	 * @return boolean
+	 */
 	public boolean addIfAbsent(T element) {
 		if (head == null) { // the list is empty...so just add it and terminate
 			add(element);
@@ -119,6 +126,7 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	 * deletes the element immediately after the supplied element
 	 * 
 	 * @param after
+	 * @return void
 	 */
 	public void deleteAfter(T after) {
 		if (head==null) {
@@ -151,7 +159,37 @@ public class SinglyLinkedList<T> implements Iterable<T> {
 	}
 	
 	/**
-	 * reverses the order of the elements on the list
+	 * returns an array of objects contained in the linkedList
+	 * 
+	 * @param class
+	 * @return array
+	 */
+	public  T[] toArray(Class<T> clazz){
+		if (head == null) {
+			throw new IndexOutOfBoundsException("the referenced SingleListedLink has no elements");
+		}
+		
+		@SuppressWarnings("unchecked")
+		T[] values=(T[])Array.newInstance(clazz, size());
+		int index=0;
+		Node<T> tmp = head;
+		while (true) {
+			if (tmp == null) {
+				break;
+			} else {
+				values[index]=tmp.getData();
+				index++;		
+			}
+			tmp = tmp.next();
+		}
+		return values;	
+	}
+	
+
+	
+	/**
+	 * reverses the order of the elements on this list
+	 * THIS METHOD MUTATES THE ORIGINAL LIST
 	 * 
 	 * @return void
 	 */
